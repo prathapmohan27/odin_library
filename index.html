@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Library</title>
+</head>
+<body>
+
+    <div class="heading">
+        <h1>Odin Library</h1>
+        <button id="addButton">+</button>
+    </div>
+    
+    <div class="bookContainer">
+        <!-- <h1>hello world!</h1> -->
+    </div>
+
+    <div class="formContainer">
+        <div id="formHeading">
+            <h1>Add New Book!</h1>
+            <div><button class="closeButton">&times;</button></div>
+        </div>
+        <form action="" method="GET" id="newForm">
+           
+            <label>
+                Title:
+                <input type="text" name='title' class="textField" id="title" required>
+            </label><br><br>
+            <label>
+                Author:
+                <input type="text" name='author' class="textField" id="author" required>
+            </label><br><br>
+            <label>
+                Page Number:
+                <input type="number" name='pageNumber' class="textField" id="pageNumber" required min="1">
+            </label><br><br>
+
+            
+            <label for="read">Did you read that book?</label><br>
+            <input type="radio" name="status" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" name="status" value="No">
+            <label for="No">No</label><br>
+            
+
+            <div id="submitButton">
+                <button id="submit" type="submit">submit</button>
+            </div>
+        
+        </form>
+    </div>
+
+    <!-- <div class="overlay"></div> -->
+    
+
+    <script src="./js/app.js"></script>
+
+</body>
+</html>

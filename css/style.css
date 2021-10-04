@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* header  */
+.heading{
+    text-align: center;
+    color: #051638;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20px;
+    background:#4fe0e3;
+    padding: 10px;
+}
+
+/*  popup button */
+
+#addButton{
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px 40px;
+    color: white;
+    border-radius: 8px;
+    background: #0f7bd9;
+}
+
+/* form for get input from user */
+ 
+.formContainer{
+    display: none;
+    width: 20%;
+    padding: 10px;
+    border: 2px solid #d1d3d6;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 100px 40%;
+    box-shadow: 0 0 5px 4px #7b7e7e;
+    background: linear-gradient(#cf4fe3,#4fe0e3);
+    transition: 200ms ease-in-out;
+    z-index: 20;
+}
+form .textField{
+    border-radius: 5px;
+    padding: 8px;
+    width: 90%;
+    border: 1px solid #e8dfdf;
+    background: #e8dfdf;
+    outline: none;
+}
+ form button{
+     border-radius: 5px;
+     padding: 8px 20px;
+     font-size: 16px;
+     font-weight: 900;
+     background: #0f7bd9;
+     color: white;
+ }
+
+ .formContainer #formHeading{
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 10px;
+ }
+
+ .formContainer .closeButton{
+     background:none;
+     color: black;
+     font-size: 20px;
+     border: none;
+     outline: none;
+     cursor: pointer;
+    font-weight: 900; 
+     
+ }
+
+ .formActive{
+     display: block;
+ }
+
+ /* submit button for add new book  to myLibrary array */
+
+ form #submitButton{
+     margin-top: 20px;
+    text-align: center;
+ }
+
+
+/* overlay  */
+
+/* .overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0,.5);
+    pointer-events: none;
+}
+
+#overlayActive{
+    opacity: 1;
+    pointer-events: all;
+} */
