@@ -1,23 +1,23 @@
 
 const addButton=document.querySelector("#addButton");
-const formContainer=document.querySelector(".formContainer");
 const closeButton=document.querySelector(".closeButton");
 const submitButton=document.querySelector("#submit");
 const overlay=document.querySelector(".overlay");
 const form= document.querySelector("#newForm");
-const radio=document.getElementsByName('status')
-// console.log(overlay)
+const radio=document.getElementsByName('status');
+const bookContainer=document.querySelector('.bookContainer');
 
 
 
-let myLibrary = [
-  
-];
+let myLibrary = [],i=0;
+
+
+
 
 function Book(title,author,pageNumber,status) {
-    this.title=title;
-    this.author=author;
-    this.pageNumber=pageNumber;
+    this.Title=title;
+    this.Author=author;
+    this.Page =pageNumber;
     this.status=status;
 }
 
@@ -35,26 +35,107 @@ function addBookToLibrary(event) {
     else{
         status=radio[1].value;
     }
+    if(!title||!author||!status||!pageNumber) {
+        alert("would you please fill form");
+        return;
+    }
     let newBook=new Book(title,author,pageNumber,status);
     myLibrary.push(newBook);
     form.reset();
     close();
+    update();
+}
+
+let toggleButton,removeButton,divCard;
+
+
+
+function update(){
+    for(i;i<myLibrary.length;i++){
+        // card div for display book details
+        divCard=document.createElement('div');
+        divCard.classList.add('card');
+        divCard.setAttribute('data-index',i);
+        // toggleButton for read or not read
+        toggleButton=document.createElement('button');
+        toggleButton.classList.add('toggleStatus');
+        toggleButton.setAttribute('id',i);
+        // removeButton the data from array
+        removeButton=document.createElement('button')
+        removeButton.classList.add('remove');
+        removeButton.textContent='X';
+        removeButton.setAttribute('data-index',i);
+        for(let j in myLibrary[i]){
+
+            if(j==='status'){
+               if(myLibrary[i][j]==='yes'){
+                   toggleButton.textContent='Read';
+                   toggleButton.style.background='#6bf250';
+               }
+               else{
+                   toggleButton.textContent='Not Read';
+                   toggleButton.style.background='#f76d3b' ;            
+               }
+               divCard.append(toggleButton);    
+               divCard.append(removeButton);       
+               
+            }
+            else{
+                let p=document.createElement('p');
+                p.textContent=`${j}: ${myLibrary[i][j]}`;
+                divCard.appendChild(p);
+            }
+           
+        }
+
+        bookContainer.appendChild(divCard);
+    }
+    // read status function
+    function toggle(b){
+        if(b.textContent==='Read'){
+            b.textContent='Not Read';
+            b.style.background='#f76d3b';
+        }
+        else{
+          b.textContent='Read';
+          b.style.background='#6bf250';       
+        }
+    }
+
+    document.querySelectorAll('.toggleStatus').forEach((b)=>{
+        b.onclick=function(){
+            toggle(b);
+        }
+    });
+
+    // delete function
+    function trash(r){
+        document.querySelectorAll('.card').forEach((c)=>{
+            if(c.dataset.index=== r.dataset.index){
+                bookContainer.removeChild(c);
+                myLibrary.splice(c.dataset.index,1);
+                i=myLibrary.length;
+            }
+        })
+
+    }
+
+    document.querySelectorAll('.remove').forEach((r)=>{
+        r.onclick=function(){
+            trash(r);
+        }
+    });
+    
 }
 
 
 function popup(){
-
-    formContainer.classList.add('formActive');
-    // overlay.id='overlayActive';
-    // console.log(overlay)
-    
+    overlay.classList.add('active');
 }
 
 function close(){
-
-    formContainer.classList.remove('formActive');
-    // overlay.removeAttribute('id')
-    // console.log(overlay)
+    overlay.classList.remove('active');
+    form.reset();
 }
 
 
@@ -62,5 +143,5 @@ addButton.addEventListener('click',popup);
 
 closeButton.addEventListener('click',close);
 
+submitButton.addEventListener('click',addBookToLibrary);
 
-submitButton.addEventListener('click',addBookToLibrary)

@@ -15,46 +15,45 @@
     </div>
     
     <div class="bookContainer">
-        <!-- <h1>hello world!</h1> -->
     </div>
 
-    <div class="formContainer">
-        <div id="formHeading">
-            <h1>Add New Book!</h1>
-            <div><button class="closeButton">&times;</button></div>
-        </div>
-        <form action="" method="GET" id="newForm">
-           
-            <label>
-                Title:
-                <input type="text" name='title' class="textField" id="title" required>
-            </label><br><br>
-            <label>
-                Author:
-                <input type="text" name='author' class="textField" id="author" required>
-            </label><br><br>
-            <label>
-                Page Number:
-                <input type="number" name='pageNumber' class="textField" id="pageNumber" required min="1">
-            </label><br><br>
+    <div class="overlay">
 
-            
-            <label for="read">Did you read that book?</label><br>
-            <input type="radio" name="status" value="yes">
-            <label for="yes">Yes</label><br>
-            <input type="radio" name="status" value="No">
-            <label for="No">No</label><br>
-            
+        <div class="formContainer">
 
-            <div id="submitButton">
-                <button id="submit" type="submit">submit</button>
+            <div id="formHeading">
+                <h1>Add New Book!</h1>
+                <div><button class="closeButton">&times;</button></div>
             </div>
-        
-        </form>
-    </div>
 
-    <!-- <div class="overlay"></div> -->
-    
+            <form action="./js/app.js" method="GET" id="newForm">
+        
+                <label>
+                    Title:
+                    <input type="text" name='title' class="textField" id="title" >
+                </label><br><br>
+                <label>
+                    Author:
+                    <input type="text" name='author' class="textField" id="author" >
+                </label><br><br>
+                <label>
+                    Page Number:
+                    <input type="number" name='pageNumber' class="textField" id="pageNumber" min="1"/>
+                </label><br><br>
+        
+                <label for="read">Did you read that book?</label><br>
+                <input type="radio" name="status" value="yes" checked="checked" id="yes"/>
+                <label for="yes">Yes</label><br>
+                <input type="radio" name="status" value="No" id="no"/>
+                <label for="no">No</label><br>
+        
+                <div id="submitButton">
+                    <button id="submit" type="submit">submit</button>
+                </div>
+        
+            </form>
+        </div>
+    </div>   
 
     <script src="./js/app.js"></script>
 
