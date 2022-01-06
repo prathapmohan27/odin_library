@@ -1,61 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Library</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="heading">
-        <h1>Odin Library</h1>
-        <button id="addButton">+</button>
+      <h1>Odin Library</h1>
+      <button id="addButton">+</button>
     </div>
-    
-    <div class="bookContainer">
-    </div>
+
+    <div class="bookContainer"></div>
 
     <div class="overlay">
-
-        <div class="formContainer">
-
-            <div id="formHeading">
-                <h1>Add New Book!</h1>
-                <div><button class="closeButton">&times;</button></div>
-            </div>
-
-            <form action="./js/app.js" method="GET" id="newForm">
-        
-                <label>
-                    Title:
-                    <input type="text" name='title' class="textField" id="title" >
-                </label><br><br>
-                <label>
-                    Author:
-                    <input type="text" name='author' class="textField" id="author" >
-                </label><br><br>
-                <label>
-                    Page Number:
-                    <input type="number" name='pageNumber' class="textField" id="pageNumber" min="1"/>
-                </label><br><br>
-        
-                <label for="read">Did you read that book?</label><br>
-                <input type="radio" name="status" value="yes" checked="checked" id="yes"/>
-                <label for="yes">Yes</label><br>
-                <input type="radio" name="status" value="No" id="no"/>
-                <label for="no">No</label><br>
-        
-                <div id="submitButton">
-                    <button id="submit" type="submit">submit</button>
-                </div>
-        
-            </form>
+      <div class="formContainer">
+        <div id="formHeading">
+          <h1>Add New Book!</h1>
+          <div><button class="closeButton">&times;</button></div>
         </div>
-    </div>   
+
+        <form action="./js/app.js" method="GET" id="newForm">
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              class="textField"
+              id="title"
+              required
+            />
+            <span class="error titleError"></span> </label
+          ><br /><br />
+          <label>
+            Author:
+            <input
+              type="text"
+              name="author"
+              class="textField"
+              id="author"
+              required
+            />
+            <span class="error authorError"></span> </label
+          ><br /><br />
+          <label>
+            Page Number:
+            <input
+              type="number"
+              name="pageNumber"
+              class="textField"
+              id="pageNumber"
+              min="1"
+            />
+            <span class="error pageNumberError"></span> </label
+          ><br /><br />
+
+          <label for="read">Did you read that book?</label><br />
+          <input
+            type="radio"
+            name="status"
+            value="yes"
+            checked="checked"
+            id="yes"
+          />
+          <label for="yes">Yes</label><br />
+          <input type="radio" name="status" value="No" id="no" />
+          <label for="no">No</label><br />
+
+          <div id="submitButton">
+            <button id="submit" type="submit">submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="./js/app.js"></script>
-
-</body>
+  </body>
 </html>
