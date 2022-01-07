@@ -24,15 +24,28 @@ function checkValue() {
   const authorError = document.querySelector('.authorError');
   const pageNumberError = document.querySelector('.pageNumberError');
 
-  if (
-    document.getElementById('author').validity.valueMissing ||
-    document.getElementById('title').validity.valueMissing ||
-    document.getElementById('pageNumber').validity.rangeUnderflow
-  ) {
+  if (document.getElementById('title').validity.valueMissing) {
     titleError.textContent = 'required';
+    authorError.textContent = '';
+    pageNumberError.textContent = '';
+    return false;
+  }
+  if (document.getElementById('author').validity.valueMissing) {
     authorError.textContent = 'required';
+    titleError.textContent = '';
+    pageNumberError.textContent = '';
+    return false;
+  }
+  if (document.getElementById('pageNumber').validity.rangeUnderflow) {
     pageNumberError.textContent = 'negative value';
-    // alert('required');
+    authorError.textContent = '';
+    titleError.textContent = '';
+    return false;
+  }
+  if (document.getElementById('pageNumber').validity.valueMissing) {
+    pageNumberError.textContent = 'required';
+    authorError.textContent = '';
+    titleError.textContent = '';
     return false;
   }
   allError.forEach((ele) => {
